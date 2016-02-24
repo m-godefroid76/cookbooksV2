@@ -22,7 +22,7 @@ template '/srv/www/wordpress/current/wp-content/plugins/opengraphy/files/config.
   mode '0644'
 end
 
-template '/srv/www/wordpress/current/wp-content/plugins/files/opengraphy/resto_fr/config.php' do
+template '/srv/www/wordpress/current/wp-content/plugins/opengraphy/files/resto_fr/config.php' do
   source 'config.resto_fr.erb'
   owner 'root'
   group 'root'
