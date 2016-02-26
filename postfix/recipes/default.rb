@@ -1,3 +1,10 @@
+bash "install prerequested" do
+  user 'root'
+  code <<-EOH
+  sudo apt-get install mailutils libsasl2-2 ca-certificates libsasl2-modules
+  EOH
+end
+
 template '/etc/postfix/main.cf' do
   source 'main.cf.erb'
   owner 'root'
