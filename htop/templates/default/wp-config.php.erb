@@ -37,7 +37,7 @@ define('DB_CHARSET', 'utf8mb4');
   * N'y touchez que si vous savez ce que vous faites.
   */
 define('DB_COLLATE', '');
-
+define('DISABLE_WP_CRON', 'true');
 /**#@+
  * Clefs uniques d'authentification et salage.
  *
@@ -49,14 +49,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         ':M];z`AcT#x@73Uj-_+4E38sP8QAv[T3Xqlwz ICUb0qK^dVj+n:v~i+1]65p]9]');
-define('SECURE_AUTH_KEY',  '(}uwpXB4+Hs~+Ub5IB%?)LJsGL|UKR2jXOS`^jZb;]Rw|bi1j5g_<&JD6.T+=|#<');
-define('LOGGED_IN_KEY',    'Oe`@*xj4p ~5H@#WFLFwl(x$lR2ctH FY#<]>b!2r]$x78peB.y<Y)jck]|vl5-N');
-define('NONCE_KEY',        ')+f_ED;x,**!3)v3Gj6C/+$W M&fLw Z>)^g8Bn+.5~P60n87lpL*Fn`j)m(wvx!');
-define('AUTH_SALT',        '|I/_OugOm~thS.f`0N#&531>pliG7uYUIR?=?Jw*ZPyU#}elh|[2xzld]A3Pi[(?');
-define('SECURE_AUTH_SALT', '+r{|:Y98o|z32UIm?O?{X gM8?>_A)jX6h1[KP)kF}$2xBo~/Lzsv}~TK{B{U;i7');
-define('LOGGED_IN_SALT',   'n,V{{`r_Sop$g!a0O@fZW%5xq>aE&_4ANwwE<lO+-/i9#<(YyUTcv9xcD%da}Oa@');
-define('NONCE_SALT',       '`Z9So$Q-Bz}Vr^(- *jk3FlA<SJi6]H:h){+lJUBDl3MkZaxRW|<S|I9|i^3:(]J');
+define('AUTH_KEY',         '!V[q$+kc[6u#-:P#y%Iy%yut^rdc)ev#@lUErn*HJoM<ZzZtRL2tjo(b:UJzC(Zy');
+define('SECURE_AUTH_KEY',  'k,y=<SD=A67rzK lEV{/[&/R~j|zS*=U!v|AnpuL/ug~5+J:p]CGa-*Jk`a+(%>2');
+define('LOGGED_IN_KEY',    '{<HLR|v[M4|7p,~{c!sXlMj,O@![$5o!`gC4cAY=H4sXm=9~!s49`B%m?%0<7)jN');
+define('NONCE_KEY',        'gupMiR@uC(OA<v<65A.>[/5L|OCSjmal:#zM-${Sy^F+mO6Yc09nl/lwZ+q-f-1K');
+define('AUTH_SALT',        'taw*0+}Ma#)8},H^x+y#+c+@~ST537aJ6)]+V&p2:P]kDT+c;j`6|q-Quk]oDkji');
+define('SECURE_AUTH_SALT', 'A4M6_{af9^(dS)Cw__MM?T$qYi?#r&XkFVtHp X1/7C<{q|DPO=8#^48=4iO|egz');
+define('LOGGED_IN_SALT',   ';)&24Z2;4zUjTl4?iLiG%DmG.pKIaePe[3$fq)9E<8+tG/y=pPY{Iw0AD4TI!,is');
+define('NONCE_SALT',       '@O2+&Sb<UbW@RsN$_A%dZ]i8`_ ;_K+06w;}8@S6|%OrKu-V}Xw#1w(l#.5t{nt2');
 /**#@-*/
 
 /**
@@ -66,7 +66,7 @@ define('NONCE_SALT',       '`Z9So$Q-Bz}Vr^(- *jk3FlA<SJi6]H:h){+lJUBDl3MkZaxRW|<
  * si vous leur donnez chacune un préfixe unique.
  * N'utilisez que des chiffres, des lettres non-accentuées, et des caractères soulignés!
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 'rf_';
 
 /**
  * Pour les développeurs : le mode déboguage de WordPress.
@@ -78,18 +78,16 @@ $table_prefix  = 'wp_';
  * développement.
  */
 define('WP_DEBUG', false);
-define('DISABLE_WP_CRON', 'true');
 
 /* Multisite */
 define( 'WP_ALLOW_MULTISITE', true );
-/* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
 define('DOMAIN_CURRENT_SITE', '<%= node['DOMAIN_NAME'] %>');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
-
+/* C'est tout, ne touchez pas à ce qui suit ! Bon blogging ! */
 
 /** Chemin absolu vers le dossier de WordPress. */
 if ( !defined('ABSPATH') )
