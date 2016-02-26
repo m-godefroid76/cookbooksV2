@@ -26,6 +26,13 @@ bash "postmap passwd" do
   EOH
 end
 
+bash "install certificate" do
+  user 'root'
+  code <<-EOH
+  cat /etc/ssl/certs/Starfield_Class_2_CA.pem | sudo tee -a /etc/postfix/cacert.pem
+  EOH
+end
+
 bash "cat certs" do
   user 'root'
   code <<-EOH
