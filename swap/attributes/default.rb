@@ -21,4 +21,4 @@
 default['create-swap']['swap-location'] = '/mnt/swap/swapfile'
 
 # How big should we make the swap file (in gigabytes)
-default['create-swap']['swap-size'] = 10 # In gigabytes
+default['create-swap']['swap-size'] = 8 # In gigabytes
