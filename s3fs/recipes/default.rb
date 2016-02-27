@@ -42,6 +42,14 @@ bash "install s3fs" do
   not_if { File.exists?("/usr/bin/s3fs") }
 end
 
+directory "/tmp/cache" do
+  mode "0777"
+  owner "root"
+  group "root"
+  action :create
+  recursive true
+end
+
 directory "/mnt/uploads" do
   mode "0755"
   owner "root"
@@ -64,5 +72,5 @@ end
 
 execute 'mount uploads folder' do
   user "root"
-  command "sudo s3fs #{ node[:bucket] } -o allow_other /mnt/uploads"
+  command "sudo s3fs #{ node[:bucket] } -o allow_other,use_cache=/tmp/cache /mnt/uploads"
 end
