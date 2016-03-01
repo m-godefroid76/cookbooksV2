@@ -4,8 +4,8 @@
 # encoding: utf-8
 #
 
-link '/mnt/srv/www/wordpress/current/wp-content/uploads' do
-  to '/mnt/uploads'
+link '/mnt/srv/www/wordpress/current/wp-content/' do
+  to '/mnt/uploads/wp-content/uploads'
 end
 
 template '/srv/www/wordpress/current/.htaccess' do
@@ -78,8 +78,8 @@ directory '/srv/www/wordpress/current/wp-content/cache' do
   action :create
 end
 
-node[:deploy].each do |application, deploy|
-  cache_config = "#{deploy[:deploy_to]}/current/wp-content/wp-cache-config.php"
-  execute "chmod -R 666 #{cache_config}" do
-  end
-end
+# node[:deploy].each do |application, deploy|
+  # cache_config = "#{deploy[:deploy_to]}/current/wp-content/wp-cache-config.php"
+  # execute "chmod -R 666 #{cache_config}" do
+  # end
+# end
