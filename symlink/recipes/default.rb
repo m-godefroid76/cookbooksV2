@@ -4,7 +4,7 @@
 # encoding: utf-8
 #
 
-link '/mnt/srv/www/wordpress/current/wp-content/' do
+link '/mnt/srv/www/wordpress/current/wp-content/uploads' do
   to '/mnt/uploads/wp-content/uploads'
 end
 
