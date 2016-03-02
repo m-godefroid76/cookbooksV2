@@ -64,6 +64,13 @@ template '/srv/www/wordpress/current/health-check.php' do
   mode '0644'
 end
 
+template '/srv/www/wordpress/current/wp-content/w3tc-config/master.php' do
+  source 'master.php.erb'
+  owner 'www-data'
+  group 'www-data'
+  mode '0644'
+end
+
 bash "copy logrotate.cron from daily to hourly" do
   user 'root'
   code <<-EOH
