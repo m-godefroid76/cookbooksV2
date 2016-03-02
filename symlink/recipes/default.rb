@@ -85,6 +85,13 @@ template '/srv/www/wordpress/current/wp-content/w3tc-config/index.html' do
   mode '0777'
 end
 
+directory '/srv/www/wordpress/current/wp-content/w3tc-config' do
+  owner 'www-data'
+  group 'www-data'
+  mode '0777'
+  action :create
+end
+
 bash "copy logrotate.cron from daily to hourly" do
   user 'root'
   code <<-EOH
