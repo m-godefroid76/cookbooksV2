@@ -68,7 +68,21 @@ template '/srv/www/wordpress/current/wp-content/w3tc-config/master.php' do
   source 'master.php.erb'
   owner 'www-data'
   group 'www-data'
-  mode '0644'
+  mode '0777'
+end
+
+template '/srv/www/wordpress/current/wp-content/w3tc-config/master-admin.php' do
+  source 'master-admin.php.erb'
+  owner 'www-data'
+  group 'www-data'
+  mode '0777'
+end
+
+template '/srv/www/wordpress/current/wp-content/w3tc-config/index.html' do
+  source 'index.html.erb'
+  owner 'www-data'
+  group 'www-data'
+  mode '0777'
 end
 
 bash "copy logrotate.cron from daily to hourly" do
@@ -86,8 +100,8 @@ directory '/srv/www/wordpress/current/wp-content/cache' do
 end
 
 node[:deploy].each do |application, deploy|
-  w3tc_config = "#{deploy[:deploy_to]}/current/wp-content/w3tc-config"
-  execute "chmod -R 777 #{w3tc_config}" do
+  cache_config = "#{deploy[:deploy_to]}/current/wp-content/w3tc-config"
+  execute "chmod -R 777 #{cache_config}" do
   end
 end
 
