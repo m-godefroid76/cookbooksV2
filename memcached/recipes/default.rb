@@ -11,4 +11,6 @@ template '/etc/php5/mods-available/memcache.ini' do
   mode '0644'
 end
 
-notifies :restart, 'service[apache2]'
+service "apache2" do
+  action :restart
+end
