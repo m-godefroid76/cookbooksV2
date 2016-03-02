@@ -64,6 +64,13 @@ template '/srv/www/wordpress/current/health-check.php' do
   mode '0644'
 end
 
+directory '/srv/www/wordpress/current/wp-content/w3tc-config' do
+  owner 'www-data'
+  group 'www-data'
+  mode '0777'
+  action :create
+end
+
 template '/srv/www/wordpress/current/wp-content/w3tc-config/master.php' do
   source 'master.php.erb'
   owner 'www-data'
@@ -83,13 +90,6 @@ template '/srv/www/wordpress/current/wp-content/w3tc-config/index.html' do
   owner 'www-data'
   group 'www-data'
   mode '0777'
-end
-
-directory '/srv/www/wordpress/current/wp-content/w3tc-config' do
-  owner 'www-data'
-  group 'www-data'
-  mode '0777'
-  action :create
 end
 
 bash "copy logrotate.cron from daily to hourly" do
