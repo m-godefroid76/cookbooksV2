@@ -168,12 +168,12 @@ template '/var/www/.aws/config' do
   mode '400'
 end
 
-bash "download enfold.css from s3" do
-  user 'root'
-  code <<-EOH 
-  aws s3 cp s3://dev2-webfactory/wp-content/uploads/ /srv/www/wordpress/current/wp-content/uploads/ --recursive  --exclude "*"  --include "*enfold.css"
-  EOH
-end
+# bash "download enfold.css from s3" do
+  # user 'root'
+  # code <<-EOH 
+  # aws s3 cp s3://dev2-webfactory/wp-content/uploads/ /srv/www/wordpress/current/wp-content/uploads/ --recursive  --exclude "*"  --include "*enfold.css"
+  # EOH
+# end
 
 # directory "/srv/www/wordpress/current/wp-content/uploads/" do
   # owner 'www-data'
