@@ -16,8 +16,11 @@
  *
  * @package WordPress
  */
-define('WP_CACHE', true);
-define( 'WPCACHEHOME', '/srv/www/wordpress/current/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
+define('SUNRISE', 'on');
+
 // ** Réglages MySQL - Votre hébergeur doit vous fournir ces informations. ** //
 /** Nom de la base de données de WordPress. */
 define('DB_NAME', '<%= node['DB_NAME'] %>');
@@ -39,7 +42,9 @@ define('DB_CHARSET', 'utf8mb4');
   */
 define('DB_COLLATE', '');
 define('DISABLE_WP_CRON', 'true');
-define('SUNRISE', 'on');
+define( 'DBI_AWS_ACCESS_KEY_ID', '<%= node['access_key'] %>' );
+define( 'DBI_AWS_SECRET_ACCESS_KEY', '<%= node['secret_key'] %>' );
+
 /**#@+
  * Clefs uniques d'authentification et salage.
  *
@@ -85,7 +90,7 @@ define('WP_DEBUG', false);
 define( 'WP_ALLOW_MULTISITE', true );
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', '<%= node['DOMAIN_NAME'] %>');
+define('DOMAIN_CURRENT_SITE', '<%= node['SITE_NAME'] %>');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
